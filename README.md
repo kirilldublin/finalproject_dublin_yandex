@@ -41,3 +41,7 @@ update-rates
 show-rates --top 2
 exit
 ```
+
+## Demo
+
+![ValutaTrade Hub demo](demo.gif)
