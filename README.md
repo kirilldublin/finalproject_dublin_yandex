@@ -1,6 +1,11 @@
 # finalproject_dublin
 
-Платформа для отслеживания и симуляции торговли валютами (CLI).
+Консольная платформа для симуляции торговли валютами:
+- регистрация и авторизация пользователей;
+- портфель фиатных и криптовалют;
+- покупка/продажа активов;
+- получение курсов из локального кэша;
+- отдельный Parser Service для обновления курсов из внешних API.
 
 ## Структура
 
@@ -27,19 +32,21 @@ make lint
 make project
 ```
 
-## CLI
+## Команды CLI
 
+Core Service
 ```text
-register --username alice --password 1234
-login --username alice --password 1234
-get-rate --from BTC --to USD
-show-portfolio
-buy --currency BTC --amount 0.01
-sell --currency BTC --amount 0.005
-show-portfolio --base USD
-update-rates
-show-rates --top 2
-exit
+register --username <str> --password <str>
+login --username <str> --password <str>
+show-portfolio [--base <str>]
+buy --currency <str> --amount <float>
+sell --currency <str> --amount <float>
+get-rate --from <str> --to <str>
+```
+Parser Service
+```text
+update-rates [--source <coingecko|exchangerate>]
+show-rates [--currency <str>] [--top <int>] [--base <str>]
 ```
 
 ## Demo
